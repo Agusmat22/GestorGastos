@@ -24,11 +24,21 @@ namespace Entidades.finance
         private EGasto tipo;
 
 
-        public TipoGasto(string nombre, int id ,EGasto tipo)
+        public TipoGasto()
         {
-            this.id = id;
+
+        }
+
+        public TipoGasto(string nombre ,EGasto tipo): this()
+        {
             this.nombre = nombre;
             this.tipo = tipo;   
+        }
+
+        public TipoGasto(string nombre, EGasto tipo, int id): this(nombre,tipo)
+        {
+            this.id = id;
+
         }
 
         public string Nombre { get => nombre; set => nombre = value; }
@@ -37,7 +47,7 @@ namespace Entidades.finance
 
         public override string ToString() 
         {
-            return $"{this.nombre} | {this.tipo}";
+            return $"{this.nombre}";
         }
     }
 }

@@ -10,35 +10,33 @@ using Entidades.interfaces;
 
 namespace Entidades.sql
 {
-    public class TipoGastoSQL : BaseSQL
+    public static class TipoGastoSQL 
     {
-        public TipoGastoSQL(): base()
+
+        private static string connectionString;
+
+
+        static TipoGastoSQL()
         {
+            TipoGastoSQL.connectionString = "Server = .; Database = GestorGastosDB; Trusted_Connection = True;";
 
         }
 
-        public TipoGastoSQL(TipoGasto tipoGasto) : this()
-        {
-            this.TipoGasto = tipoGasto;
-        }
 
-        public List<TipoGasto> TipoGastos { get; set; }
-        public TipoGasto TipoGasto { get; set; }
-
-        public override void Eliminar()
+        public static void Eliminar(TipoGasto tipoGasto)
         {
-            if (this.TipoGasto is not null)
+            if (tipoGasto is not null)
             {
                 try
                 {
                     string query = "DELETE FROM TipoGasto WHERE Id=@Id";
 
-                    using (SqlConnection sqlConnection = new SqlConnection(BaseSQL.ConnectionString))
+                    using (SqlConnection sqlConnection = new SqlConnection(TipoGastoSQL.connectionString))
                     {
 
                         SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
-                        sqlCommand.Parameters.AddWithValue("Id", this.TipoGasto.Id);
+                        sqlCommand.Parameters.AddWithValue("Id", tipoGasto.Id);
 
                         sqlConnection.Open();
 
@@ -60,25 +58,27 @@ namespace Entidades.sql
             }
         }
 
-        public override void Guardar()
+        public static int Guardar(TipoGasto tipoGasto)
         {
-            if (this.TipoGasto is not null)
+            if (tipoGasto is not null)
             {
                 try
                 {
-                    string query = "INSERT INTO TipoGasto ( Nombre, Tipo) VALUES (@Nombre, @Tipo)";
+                    string query = "INSERT INTO TipoGasto ( Nombre, Tipo) VALUES (@Nombre, @Tipo); SELECT SCOPE_IDENTITY();";
 
-                    using (SqlConnection sqlConnection = new SqlConnection(BaseSQL.ConnectionString))
+                    using (SqlConnection sqlConnection = new SqlConnection(TipoGastoSQL.connectionString))
                     {
 
                         SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
-                        sqlCommand.Parameters.AddWithValue("Nombre", this.TipoGasto.Nombre);
-                        sqlCommand.Parameters.AddWithValue("Tipo", this.TipoGasto.Tipo.ToString());
+                        sqlCommand.Parameters.AddWithValue("Nombre", tipoGasto.Nombre);
+                        sqlCommand.Parameters.AddWithValue("Tipo", tipoGasto.Tipo.ToString());
 
                         sqlConnection.Open();
 
-                        sqlCommand.ExecuteNonQuery();
+                        int insertedId = Convert.ToInt32(sqlCommand.ExecuteScalar());
+
+                        return insertedId;
 
 
                     }
@@ -96,13 +96,13 @@ namespace Entidades.sql
             }
         }
 
-        public override void Obtener()
+        public static List<TipoGasto> Obtener()
         {
             try
             {
                 string query = "SELECT * FROM TipoGasto";
 
-                using (SqlConnection sqlConnection = new SqlConnection(BaseSQL.ConnectionString))
+                using (SqlConnection sqlConnection = new SqlConnection(TipoGastoSQL.connectionString))
                 {
 
                     SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
@@ -111,9 +111,10 @@ namespace Entidades.sql
 
                     SqlDataReader reader = sqlCommand.ExecuteReader();
 
+                    List<TipoGasto> tipoGastos = new List<TipoGasto>();
+
                     if (reader.HasRows)
                     {
-                        this.TipoGastos = new List<TipoGasto>(); //si tiene filas lo instancio
 
                         while (reader.Read())
                         {
@@ -126,11 +127,13 @@ namespace Entidades.sql
                             {
 
                                 //agrego cada gasto a la lista
-                                this.TipoGastos.Add(new TipoGasto(nombre, id, tipoGasto));
+                                tipoGastos.Add(new TipoGasto(nombre, tipoGasto, id));
                             }
 
                             
                         }
+
+                        return tipoGastos;
 
                     }
 
@@ -142,6 +145,47 @@ namespace Entidades.sql
             {
                 throw;
             }
+
+            return null;
+        }
+
+        public static void Actualizar(TipoGasto tipoGasto)
+        {
+            if (tipoGasto is not null)
+            {
+                try
+                {
+                    string query = "UPDATE TipoGasto " +
+                                   "SET Nombre=@Nombre, Tipo=@Tipo WHERE Id=@Id";
+
+                    using (SqlConnection sqlConnection = new SqlConnection(TipoGastoSQL.connectionString))
+                    {
+
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                        sqlCommand.Parameters.AddWithValue("Nombre", tipoGasto.Nombre);
+                        sqlCommand.Parameters.AddWithValue("Tipo", tipoGasto.Tipo.ToString());
+                        sqlCommand.Parameters.AddWithValue("Id", tipoGasto.Id);
+
+                        sqlConnection.Open();
+
+                        sqlCommand.ExecuteNonQuery();
+
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+            else
+            {
+                throw new Exception("Error, debe inyectar un Tipo de Gasto para poder actualizarlo");
+            }
         }
     }
+
+    
 }

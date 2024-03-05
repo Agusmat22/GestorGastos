@@ -31,7 +31,7 @@
             btnRegistrar = new Button();
             btnCancelar = new Button();
             txtNombre = new TextBox();
-            label1 = new Label();
+            lblTitulo = new Label();
             label2 = new Label();
             txtR50 = new TextBox();
             txtR30 = new TextBox();
@@ -70,15 +70,15 @@
             txtNombre.Size = new Size(254, 25);
             txtNombre.TabIndex = 13;
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(131, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(87, 25);
-            label1.TabIndex = 8;
-            label1.Text = "Registrar";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTitulo.Location = new Point(131, 22);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(87, 25);
+            lblTitulo.TabIndex = 8;
+            lblTitulo.Text = "Registrar";
             // 
             // label2
             // 
@@ -121,7 +121,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(125, 166);
+            label3.Location = new Point(131, 170);
             label3.Name = "label3";
             label3.Size = new Size(91, 15);
             label3.TabIndex = 20;
@@ -140,9 +140,10 @@
             Controls.Add(btnRegistrar);
             Controls.Add(btnCancelar);
             Controls.Add(txtNombre);
-            Controls.Add(label1);
+            Controls.Add(lblTitulo);
             Name = "FormRegistrarUser";
             Text = "FormRegistrarUser";
+            Load += FormRegistrarUser_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -152,7 +153,7 @@
         private Button btnRegistrar;
         private Button btnCancelar;
         private TextBox txtNombre;
-        private Label label1;
+        private Label lblTitulo;
         private Label label2;
         private TextBox txtR50;
         private TextBox txtR30;

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             txtSueldo = new TextBox();
             label5 = new Label();
             label6 = new Label();
@@ -48,11 +48,13 @@
             Valor = new DataGridViewTextBoxColumn();
             dateTimePicker1 = new DateTimePicker();
             txtR30 = new TextBox();
+            cmbOrden = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvGastos).BeginInit();
             SuspendLayout();
             // 
             // txtSueldo
             // 
+            txtSueldo.Enabled = false;
             txtSueldo.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtSueldo.Location = new Point(22, 413);
             txtSueldo.Name = "txtSueldo";
@@ -80,6 +82,7 @@
             // 
             // txtGastoTotal
             // 
+            txtGastoTotal.Enabled = false;
             txtGastoTotal.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtGastoTotal.Location = new Point(678, 413);
             txtGastoTotal.Name = "txtGastoTotal";
@@ -90,84 +93,92 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(62, 13);
+            label9.Location = new Point(22, 13);
             label9.Name = "label9";
-            label9.Size = new Size(26, 15);
+            label9.Size = new Size(73, 15);
             label9.TabIndex = 14;
-            label9.Text = "R50";
+            label9.Text = "Necesidades";
             // 
             // txtR50
             // 
+            txtR50.Enabled = false;
             txtR50.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtR50.Location = new Point(22, 31);
             txtR50.Name = "txtR50";
             txtR50.ReadOnly = true;
-            txtR50.Size = new Size(107, 25);
+            txtR50.Size = new Size(78, 25);
             txtR50.TabIndex = 11;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(196, 13);
+            label7.Location = new Point(132, 13);
             label7.Name = "label7";
-            label7.Size = new Size(26, 15);
+            label7.Size = new Size(32, 15);
             label7.TabIndex = 16;
-            label7.Text = "R30";
+            label7.Text = "Ocio";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(328, 13);
+            label8.Location = new Point(214, 13);
             label8.Name = "label8";
-            label8.Size = new Size(26, 15);
+            label8.Size = new Size(44, 15);
             label8.TabIndex = 18;
-            label8.Text = "R20";
+            label8.Text = "Ahorro";
             // 
             // txtR20
             // 
+            txtR20.Enabled = false;
             txtR20.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtR20.Location = new Point(288, 31);
+            txtR20.Location = new Point(111, 31);
             txtR20.Name = "txtR20";
             txtR20.ReadOnly = true;
-            txtR20.Size = new Size(107, 25);
+            txtR20.Size = new Size(78, 25);
             txtR20.TabIndex = 17;
             // 
             // dgvGastos
             // 
             dgvGastos.BackgroundColor = Color.IndianRed;
             dgvGastos.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvGastos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new Padding(0, 2, 0, 2);
+            dataGridViewCellStyle1.SelectionBackColor = Color.RosyBrown;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvGastos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvGastos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvGastos.Columns.AddRange(new DataGridViewColumn[] { Tipo, Nombre, Fecha, Valor });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvGastos.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvGastos.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvGastos.EnableHeadersVisualStyles = false;
             dgvGastos.GridColor = SystemColors.AppWorkspace;
             dgvGastos.Location = new Point(22, 78);
             dgvGastos.Name = "dgvGastos";
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvGastos.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgvGastos.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvGastos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvGastos.RowHeadersVisible = false;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(255, 192, 192);
-            dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 192, 192);
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.Padding = new Padding(0, 1, 0, 1);
+            dataGridViewCellStyle4.SelectionBackColor = Color.Firebrick;
+            dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvGastos.RowTemplate.Height = 25;
             dgvGastos.Size = new Size(766, 301);
             dgvGastos.TabIndex = 19;
@@ -176,48 +187,65 @@
             // 
             Tipo.HeaderText = "Tipo";
             Tipo.Name = "Tipo";
+            Tipo.ReadOnly = true;
             Tipo.Width = 181;
             // 
             // Nombre
             // 
             Nombre.HeaderText = "Nombre";
             Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
             Nombre.Width = 203;
             // 
             // Fecha
             // 
             Fecha.HeaderText = "Fecha";
             Fecha.Name = "Fecha";
+            Fecha.ReadOnly = true;
             Fecha.Width = 190;
             // 
             // Valor
             // 
             Valor.HeaderText = "Valor";
             Valor.Name = "Valor";
+            Valor.ReadOnly = true;
             Valor.Width = 190;
             // 
             // dateTimePicker1
             // 
             dateTimePicker1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker1.Location = new Point(588, 31);
+            dateTimePicker1.Location = new Point(350, 31);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 25);
+            dateTimePicker1.Size = new Size(225, 25);
             dateTimePicker1.TabIndex = 20;
             // 
             // txtR30
             // 
+            txtR30.Enabled = false;
             txtR30.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtR30.Location = new Point(155, 31);
+            txtR30.Location = new Point(200, 31);
             txtR30.Name = "txtR30";
             txtR30.ReadOnly = true;
-            txtR30.Size = new Size(107, 25);
+            txtR30.Size = new Size(78, 25);
             txtR30.TabIndex = 21;
+            // 
+            // cmbOrden
+            // 
+            cmbOrden.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbOrden.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbOrden.FormattingEnabled = true;
+            cmbOrden.Location = new Point(664, 31);
+            cmbOrden.Name = "cmbOrden";
+            cmbOrden.Size = new Size(124, 25);
+            cmbOrden.TabIndex = 22;
+            cmbOrden.SelectedIndexChanged += cmbOrden_SelectedIndexChanged;
             // 
             // FormBalance
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cmbOrden);
             Controls.Add(txtR30);
             Controls.Add(dateTimePicker1);
             Controls.Add(dgvGastos);
@@ -232,7 +260,10 @@
             Controls.Add(txtSueldo);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormBalance";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormBalance";
+            FormClosing += FormBalance_FormClosing;
+            Load += FormBalance_Load;
             ((System.ComponentModel.ISupportInitialize)dgvGastos).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -263,5 +294,6 @@
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Valor;
+        private ComboBox cmbOrden;
     }
 }

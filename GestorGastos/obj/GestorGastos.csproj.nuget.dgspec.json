@@ -1,20 +1,81 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\usuario\\Desktop\\Practice\\GestorGastos\\GestorGastos\\GestorGastos.csproj": {}
+    "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\GestorGastos\\GestorGastos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\usuario\\Desktop\\Practice\\GestorGastos\\GestorGastos\\GestorGastos.csproj": {
+    "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Practice\\GestorGastos\\GestorGastos\\GestorGastos.csproj",
-        "projectName": "GestorGastos",
-        "projectPath": "C:\\Users\\usuario\\Desktop\\Practice\\GestorGastos\\GestorGastos\\GestorGastos.csproj",
-        "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\usuario\\Desktop\\Practice\\GestorGastos\\GestorGastos\\obj\\",
+        "projectUniqueName": "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\Entidades\\Entidades.csproj",
+        "projectName": "Entidades",
+        "projectPath": "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\Entidades\\Entidades.csproj",
+        "packagesPath": "C:\\Users\\Lisandro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lisandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\GestorGastos\\GestorGastos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\GestorGastos\\GestorGastos.csproj",
+        "projectName": "GestorGastos",
+        "projectPath": "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\GestorGastos\\GestorGastos.csproj",
+        "packagesPath": "C:\\Users\\Lisandro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\GestorGastos\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Lisandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,7 +88,11 @@
         "frameworks": {
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\Entidades\\Entidades.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

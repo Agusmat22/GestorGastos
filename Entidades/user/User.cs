@@ -16,14 +16,20 @@ namespace Entidades.user
         private int r50;
         private int r30;
         private int r20;
+        private double sueldo;
 
-        public User(int id, string nombre, int r50, int r30, int r20) 
+        public User(string nombre, int r50, int r30, int r20, double sueldo) 
         { 
-            this.id = id;
             this.nombre = nombre;   
             this.r50 = r50;
             this.r30 = r30;
             this.r20 = r20;
+            this.sueldo = sueldo;
+        }
+
+        public User(int id, string nombre, int r50, int r30, int r20,double sueldo) : this(nombre,r50, r30, r20, sueldo)
+        {
+            this.id = id;
         }
 
 
@@ -32,6 +38,7 @@ namespace Entidades.user
         public int R30 { get => r30; set => r30 = value; }
         public int R20 { get => r20; set => r20 = value; }
         public int Id { get => id; set => id = value; }
+        public double Sueldo { get => sueldo; set => sueldo = value; }
 
         public override string ToString()
         {

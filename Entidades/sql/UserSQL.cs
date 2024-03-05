@@ -9,34 +9,36 @@ using System.Data.SqlClient;
 
 namespace Entidades.sql
 {
-    public class UserSQL : BaseSQL
+    public static class UserSQL 
     {
 
-        public UserSQL(User user): base()
-        { 
-            this.User = user;
+
+        private static string connectionString;
+
+
+        static UserSQL()
+        {
+            UserSQL.connectionString = "Server = .; Database = GestorGastosDB; Trusted_Connection = True;";
 
         }
 
-        public User User { get; set; }
-        public List<User> Users { get; set; }
 
 
 
-        public override void Eliminar()
+        public static void Eliminar(User user)
         {
-            if (this.User is not null)
+            if (user is not null)
             {
                 try
                 {
                     string query = "DELETE FROM Usuario WHERE Id=@Id";
 
-                    using (SqlConnection sqlConnection = new SqlConnection(BaseSQL.ConnectionString))
+                    using (SqlConnection sqlConnection = new SqlConnection(UserSQL.connectionString))
                     {
 
                         SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
-                        sqlCommand.Parameters.AddWithValue("Id", this.User.Id);
+                        sqlCommand.Parameters.AddWithValue("Id", user.Id);
 
                         sqlConnection.Open();
 
@@ -58,27 +60,30 @@ namespace Entidades.sql
             }
         }
 
-        public override void Guardar()
+        public static int Guardar(User user)
         {
-            if (this.User is not null)
+            if (user is not null)
             {
                 try
                 {
-                    string query = "INSERT INTO Usuario (Nombre, R50, R30, R20 ) VALUES (@Nombre, @R50, @R30, @R20)";
+                    string query = "INSERT INTO Usuario (Nombre, R50, R30, R20, Sueldo) VALUES (@Nombre, @R50, @R30, @R20, @Sueldo); SELECT SCOPE_IDENTITY();";
 
-                    using (SqlConnection sqlConnection = new SqlConnection(BaseSQL.ConnectionString))
+                    using (SqlConnection sqlConnection = new SqlConnection(UserSQL.connectionString))
                     {
 
                         SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
-                        sqlCommand.Parameters.AddWithValue("Nombre", this.User.Nombre);
-                        sqlCommand.Parameters.AddWithValue("R50", this.User.R50);
-                        sqlCommand.Parameters.AddWithValue("R30", this.User.R30);
-                        sqlCommand.Parameters.AddWithValue("R20", this.User.R20);
+                        sqlCommand.Parameters.AddWithValue("Nombre", user.Nombre);
+                        sqlCommand.Parameters.AddWithValue("R50", user.R50);
+                        sqlCommand.Parameters.AddWithValue("R30", user.R30);
+                        sqlCommand.Parameters.AddWithValue("R20", user.R20);
+                        sqlCommand.Parameters.AddWithValue("Sueldo", user.Sueldo);
 
                         sqlConnection.Open();
 
-                        sqlCommand.ExecuteNonQuery();
+                        int insertedId = Convert.ToInt32(sqlCommand.ExecuteScalar());
+
+                        return insertedId;
 
 
                     }
@@ -96,13 +101,13 @@ namespace Entidades.sql
             }
         }
 
-        public override void Obtener()
+        public static List<User> Obtener()
         {
             try
             {
                 string query = "SELECT * FROM Usuario";
 
-                using (SqlConnection sqlConnection = new SqlConnection(BaseSQL.ConnectionString))
+                using (SqlConnection sqlConnection = new SqlConnection(UserSQL.connectionString))
                 {
 
                     SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
@@ -111,9 +116,10 @@ namespace Entidades.sql
 
                     SqlDataReader reader = sqlCommand.ExecuteReader();
 
+                    List<User> users = new List<User>();
+
                     if (reader.HasRows)
                     {
-                        this.Users = new List<User>(); //si tiene filas lo instancio
 
                         while (reader.Read())
                         {
@@ -122,13 +128,15 @@ namespace Entidades.sql
                             int r50 = Convert.ToInt32(reader["R50"]);
                             int r30 = Convert.ToInt32(reader["R30"]);
                             int r20 = Convert.ToInt32(reader["R20"]);
+                            double sueldo = Convert.ToDouble(reader["Sueldo"]);
 
 
 
                             //agrego cada gasto a la lista
-                            this.Users.Add(new User(id,nombre,r50,r30,r20));
+                            users.Add(new User(id,nombre,r50,r30,r20, sueldo));
                         }
 
+                        return users;
                     }
 
 
@@ -139,6 +147,8 @@ namespace Entidades.sql
             {
                 throw;
             }
+
+            return null;
         }
     }
 }

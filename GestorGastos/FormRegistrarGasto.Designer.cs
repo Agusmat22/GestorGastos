@@ -28,34 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblTitulo = new Label();
             cmbTipoGasto = new ComboBox();
             label2 = new Label();
-            label3 = new Label();
             txtValor = new TextBox();
             btnCancelar = new Button();
             btnRegistrar = new Button();
-            cmbNombre = new ComboBox();
             label4 = new Label();
             SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(135, 10);
-            label1.Name = "label1";
-            label1.Size = new Size(87, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Registrar";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTitulo.Location = new Point(135, 10);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(87, 25);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Registrar";
             // 
             // cmbTipoGasto
             // 
+            cmbTipoGasto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTipoGasto.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cmbTipoGasto.FormattingEnabled = true;
             cmbTipoGasto.Location = new Point(54, 110);
             cmbTipoGasto.Name = "cmbTipoGasto";
-            cmbTipoGasto.Size = new Size(254, 23);
+            cmbTipoGasto.Size = new Size(254, 28);
             cmbTipoGasto.TabIndex = 1;
+            cmbTipoGasto.SelectedIndexChanged += cmbTipoGasto_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -67,59 +68,44 @@
             label2.TabIndex = 2;
             label2.Text = "Tipo de gasto";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(148, 153);
-            label3.Name = "label3";
-            label3.Size = new Size(59, 19);
-            label3.TabIndex = 4;
-            label3.Text = "Nombre";
-            // 
             // txtValor
             // 
-            txtValor.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValor.Location = new Point(54, 251);
+            txtValor.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtValor.Location = new Point(54, 188);
             txtValor.Name = "txtValor";
-            txtValor.Size = new Size(254, 25);
+            txtValor.Size = new Size(254, 27);
             txtValor.TabIndex = 5;
+            txtValor.KeyPress += txtValor_KeyPress;
             // 
             // btnCancelar
             // 
             btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Location = new Point(54, 364);
+            btnCancelar.Location = new Point(54, 261);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(122, 33);
             btnCancelar.TabIndex = 6;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnRegistrar
             // 
             btnRegistrar.BackColor = Color.Brown;
             btnRegistrar.FlatAppearance.BorderColor = Color.Black;
             btnRegistrar.FlatStyle = FlatStyle.Flat;
-            btnRegistrar.Location = new Point(186, 364);
+            btnRegistrar.Location = new Point(186, 261);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(122, 33);
             btnRegistrar.TabIndex = 7;
             btnRegistrar.Text = "Registrar";
             btnRegistrar.UseVisualStyleBackColor = false;
-            // 
-            // cmbNombre
-            // 
-            cmbNombre.FormattingEnabled = true;
-            cmbNombre.Location = new Point(54, 184);
-            cmbNombre.Name = "cmbNombre";
-            cmbNombre.Size = new Size(254, 23);
-            cmbNombre.TabIndex = 8;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(157, 229);
+            label4.Location = new Point(157, 157);
             label4.Name = "label4";
             label4.Size = new Size(40, 19);
             label4.TabIndex = 9;
@@ -129,32 +115,30 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(359, 432);
+            ClientSize = new Size(359, 333);
             Controls.Add(label4);
-            Controls.Add(cmbNombre);
             Controls.Add(btnRegistrar);
             Controls.Add(btnCancelar);
             Controls.Add(txtValor);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(cmbTipoGasto);
-            Controls.Add(label1);
+            Controls.Add(lblTitulo);
             Name = "FormRegistrarGasto";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRegistrarGasto";
+            Load += FormRegistrarGasto_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label lblTitulo;
         private ComboBox cmbTipoGasto;
         private Label label2;
-        private Label label3;
         private TextBox txtValor;
         private Button btnCancelar;
         private Button btnRegistrar;
-        private ComboBox cmbNombre;
         private Label label4;
     }
 }

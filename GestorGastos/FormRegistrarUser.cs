@@ -16,5 +16,10 @@ namespace GestorGastos
         {
             InitializeComponent();
         }
+
+        private void FormRegistrarUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
