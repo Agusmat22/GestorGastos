@@ -470,19 +470,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lisandro\\.nuget\\packages\\": {}
+    "C:\\Users\\usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\Entidades\\Entidades.csproj",
+      "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Practice\\GestorGastos\\Entidades\\Entidades.csproj",
       "projectName": "Entidades",
-      "projectPath": "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\Entidades\\Entidades.csproj",
-      "packagesPath": "C:\\Users\\Lisandro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lisandro\\Desktop\\GestorGastos\\Entidades\\obj\\",
+      "projectPath": "C:\\Users\\usuario\\Desktop\\Practice\\GestorGastos\\Entidades\\Entidades.csproj",
+      "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\usuario\\Desktop\\Practice\\GestorGastos\\Entidades\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lisandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

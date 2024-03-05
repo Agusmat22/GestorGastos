@@ -55,7 +55,8 @@ namespace Entidades.finance
             try
             {
 
-                TipoGastoSQL.Guardar(tipoGasto);
+                int id = TipoGastoSQL.Guardar(tipoGasto);
+                tipoGasto.Id = id;
                 this.TipoGasto.Add(tipoGasto);
             }
             catch (Exception) 
@@ -91,20 +92,17 @@ namespace Entidades.finance
             return total;
         }
 
-        public static double ReglaCincuenta()
+        /// <summary>
+        /// Valida si el gasto generado y el porcentaje asignado no supera al limite por sueldo que tiene
+        /// </summary>
+        /// <param name="gasto"></param>
+        /// <param name="porcentaje"></param>
+        /// <returns></returns>
+        public bool ReglaGasto(double gasto, int porcentaje)
         {
-            throw new NotImplementedException();
+            return gasto < (this.User.Sueldo * porcentaje) / 100;  
         }
 
-        public static double ReglaTreinta()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static double ReglaVeinte()
-        {
-            throw new NotImplementedException();
-        }
 
 
     }

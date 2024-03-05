@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GestorGastos
-build_property.ProjectDir = C:\Users\Lisandro\Desktop\GestorGastos\GestorGastos\
+build_property.ProjectDir = C:\Users\usuario\Desktop\Practice\GestorGastos\GestorGastos\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

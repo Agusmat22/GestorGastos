@@ -11,7 +11,8 @@ namespace Entidades.finance
         Servicios,
         Necesidad,
         Imprevisto,
-        Ocio
+        Ocio,
+        Ahorro
 
     }
 
